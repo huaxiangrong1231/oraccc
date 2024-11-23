@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>圆形统计图示例</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        canvas {
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* 在画布下添加阴影 */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myPieChart" width="200" height="200"></canvas>
+    <script>
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie', // 图表类型
+            data: {
+                labels: ['天', '周', '月'], // 各部分标签
+                datasets: [{
+                    data: [233, 975, 900], // 各部分的数据
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'], // 改进后的颜色
+                    borderColor: 'white', // 数据块的边框颜色
+                    borderWidth: 2 // 边框宽度
+                }]
+            },
+            options: {
+                responsive: true, // 使图表响应式
+                maintainAspectRatio: false, // 忽略原始长宽比
+                animation: {
+                    animateScale: true, // 缩放动画
+                    animateRotate: true // 旋转动画
+                },
+                plugins: {
+                    legend: {
+                        position: 'top', // 图例位置
+                        labels: {
+                            padding: 20, // 图例标签的内边距
+                            boxWidth: 20, // 图例颜色块的宽度
+                            fontStyle: 'bold' // 字体样式
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
